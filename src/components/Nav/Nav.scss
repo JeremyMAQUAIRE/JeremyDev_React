@@ -1,0 +1,120 @@
+@use '../../styles/variables' as v;
+
+.nav {
+  position: fixed;
+  color: v.$secondary;
+  top: 4em;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  z-index: 100;
+  transform: translateX(100%); /* Default, hidden off-screen */
+  transition: transform 0.5s ease;
+
+  &_open {
+    transform: translateX(0); /* Menu visible */
+  }
+
+  &_closed {
+    transform: translateX(100%); /* Menu hidden */
+  }
+
+  &_link {
+    padding: .8em 0;
+    margin-top: .4em;
+    background-color: #F2F3F5;
+    color: v.$primary;
+    border-radius: 20px;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 2px 10px v.$primary;
+    opacity: 0; /* Start invisible */
+    transform: translateX(20px); /* Slightly shifted to the right */
+    animation: slideIn 0.5s forwards;
+    animation-play-state: paused; /* Animation paused by default */
+
+    &:hover {
+      background-color: v.$secondary;
+      color: v.$primary;
+    }
+  }
+
+  /* Keyframes for the slide-in animation */
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0); /* Links return to their place */
+    }
+  }
+
+  /* Keyframes for the slide-out animation */
+  @keyframes slideOut {
+    to {
+      opacity: 0;
+      transform: translateX(-20px); /* Move to the left */
+    }
+  }
+
+  /* Animation delays for cascading effect */
+  &_link:nth-child(1) { animation-delay: 0.2s; }
+  &_link:nth-child(2) { animation-delay: 0.4s; }
+  &_link:nth-child(3) { animation-delay: 0.6s; }
+  &_link:nth-child(4) { animation-delay: 0.8s; }
+  &_link:nth-child(5) { animation-delay: 1s; }
+
+  /* When the menu is open, activate the slide-in animation */
+  &_open &_link {
+    animation-play-state: running; /* Activate the animation when the menu is open */
+  }
+
+  /* When the menu is closed, activate the slide-out animation */
+  &_closed &_link {
+    animation: slideOut 0.5s forwards; /* Apply slide-out animation */
+    animation-play-state: running; /* Activate the animation when the menu is closed */
+    animation-delay: calc(0.2s * var(--n)); /* Cascading effect */
+  }
+
+  &_laptop {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .nav {
+    &_laptop {
+      display: flex;
+      position: fixed;
+      right: 1em;
+
+      &_link {
+        color: v.$secondary;
+        width: 6em;
+        font-size: 1.3em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5em;
+        margin: .2em;
+
+        &:hover {
+          background-color: v.$secondary;
+          color: v.$primary;
+          font-style: italic;
+          border-radius: 45%;
+        }
+
+        &_active {
+          background-color: v.$secondary;
+          color: v.$primary;
+          font-style: italic;
+          border-radius: 45%;
+          box-shadow: 2px 2px 15px v.$secondary;
+        }
+      }
+    }
+  }
+}

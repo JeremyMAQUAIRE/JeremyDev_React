@@ -1,3 +1,5 @@
+@use '../../styles/variables' as v;
+
 .App {
 	text-align: center;
 
@@ -23,6 +25,20 @@
 
 	&-link {
 		color: #61dafb;
+	}
+}
+
+.header {
+	height: 4em;
+	background-color: v.$primary;
+	display: flex;
+	align-items: center;
+
+	&_logo{
+		height: 2em;
+		width: 2em;
+		border-radius: 25%;
+		margin-left: 1em;
 	}
 }
 

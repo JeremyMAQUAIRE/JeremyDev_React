@@ -1,0 +1,134 @@
+@use '../../styles/variables' as v;
+
+.home-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+
+  // Background image with opacity applied only to the image, not the content
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(../../assets/bandeau_site.jpg);
+    background-size: auto;
+    background-position: right;
+    background-repeat: no-repeat;
+    opacity: 0.1; // This will apply the opacity to the background image only
+    z-index: -1; // Ensures the background image stays behind the content
+  }
+
+  &_head {
+    &_title {
+      margin: 0;
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: .5em;
+      color: v.$primary;
+      z-index: 1; // Ensures the text stays on top of the background image
+      display: flex;
+      justify-content: center;
+    }
+
+    &_subtitle {
+      font-size: 1.15em;
+      color: v.$primary;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: .3em;
+
+      &_span::before {
+        content: "Développeur Full Stack, Freelance";
+        padding: .5em 0;
+        color: v.$secondary;
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden; /* Ensures the text is clipped when animated */
+        border-right: 2px solid; /* The cursor effect */
+        animation: typing 3.5s steps(30, end) infinite alternate, 
+                   blink-caret 0.75s step-end infinite, 
+                   deleting 3.5s steps(30, end) infinite alternate;
+      }
+    }
+  }
+
+  &_social-links{
+    display: flex;
+    gap : 4em;
+    color: v.$primary;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-page {
+    &_head {
+      &_title {
+        font-size: 5em;
+      }
+
+      &_subtitle {
+        font-size: 2.5em;
+      }
+    }
+
+    &_social-links{
+      &_icon_facebook,  &_icon_github,  &_icon_linkedin {
+        width: 2em;
+        height: 2em;
+      }
+
+      &_link {
+        width: 4em;
+        height: 4em;
+        display: flex;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+      }
+
+      &_link:hover {
+        color: v.$secondary;
+        background-color: v.$primary; 
+      }
+    }
+  }
+}
+
+
+/* Typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%; /* Adapt this to the length of the text */
+  }
+}
+
+/* Effet de suppression */
+@keyframes deleting {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+/* Cursor blinking effect */
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: v.$secondary; /* The color of the cursor */
+  }
+}
