@@ -11,6 +11,22 @@ const HomePage = () => {
           name="description"
           content="Bienvenue sur la page d'accueil de Jérémy Maquaire, développeur web."
         />
+        <meta
+          name="keywords"
+          content="Développeur web, Jérémy Maquaire, solutions digitales, création de sites"
+        />
+        <meta name="author" content="Jérémy Maquaire" />
+        <meta name="language" content="fr-FR" />
+
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Accueil - Jérémy Maquaire" />
+        <meta
+          property="og:description"
+          content="Découvrez le portfolio et les projets de Jérémy Maquaire, développeur web passionné."
+        />
+        <meta property="og:image" content="assets/img/logo.jpg" />
+        <meta property="og:url" content="https://jeremy-dev63.fr" />
+        <meta property="og:type" content="website" />
       </Helmet>
 
       <p className="home-page_head">

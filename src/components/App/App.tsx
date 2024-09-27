@@ -1,5 +1,3 @@
-// App.js
-import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -8,10 +6,9 @@ import {
 } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import HomePage from '../HomePage/HomePage';
-import ContactPage from './ContactPage';
-import AboutPage from './AboutPage';
 import './App.scss';
 import Header from '../Header/Header';
+import AboutPage from '../AboutPage/AboutPage';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -34,7 +31,7 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/about"
+          path="/a_propos"
           element={
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -43,19 +40,6 @@ function AnimatedRoutes() {
               transition={{ duration: 0.5 }}
             >
               <AboutPage />
-            </motion.div>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <ContactPage />
             </motion.div>
           }
         />

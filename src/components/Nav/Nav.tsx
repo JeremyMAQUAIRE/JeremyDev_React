@@ -16,7 +16,7 @@ const Nav = ({ isOpenNav, setIsOpenNav }: NavProps) => {
   // Array of link labels
   const links = [
     { label: 'Accueil', to: '/', id: 1 },
-    { label: 'A propos', to: '/about', id: 2 },
+    { label: 'A propos', to: '/a_propos', id: 2 },
     { label: 'PortFolio', to: '/portfolio', id: 3 },
     { label: 'Tarif', to: '/pricing', id: 4 },
     { label: 'Contact', to: '/contact', id: 5 },
