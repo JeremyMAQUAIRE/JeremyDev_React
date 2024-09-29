@@ -9,6 +9,7 @@ import HomePage from '../HomePage/HomePage';
 import './App.scss';
 import Header from '../Header/Header';
 import AboutPage from '../AboutPage/AboutPage';
+import Portfolio from '../Portfolio/Portfolio';
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -40,6 +41,19 @@ function AnimatedRoutes() {
               transition={{ duration: 0.5 }}
             >
               <AboutPage />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/portfolio"
+          element={
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <Portfolio />
             </motion.div>
           }
         />

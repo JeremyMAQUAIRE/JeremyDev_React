@@ -1,0 +1,109 @@
+@use '../../styles/variables' as v;
+
+// Partie composant PROJECT -- Début
+.project-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+
+  &_card {
+    width: 98%;
+    border: 2px solid v.$secondary ;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px  v.$secondary;
+    height: 65vh;
+    position: relative;
+
+    &_header {
+      position: relative;
+      text-align: center;
+    
+      &_image {
+        display: block;
+        height: 20vh;
+        width: 100%;
+        border-radius: 18px 18px 0 0;
+        border-bottom: 1px solid v.$secondary;
+        opacity: 0.8;
+      }
+
+      &_title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        background: rgba(0, 0, 0, 0.4); /* Fond semi-transparent */
+        padding: 10px;
+        text-align: center;
+        width: 100%;
+        font-size: 1.5rem; /* Ajuste la taille du texte si nécessaire */
+      }
+    }
+
+    &_body {
+      overflow: scroll; // This will hide the overflow content
+      max-height: 35vh; // Limit the height to a certain value
+      transition: max-height 0.3s ease; // Smooth transition for height change
+
+      &_text {
+        font-size: 0.9em;
+        padding: 1em;
+        color : v.$primary;
+        font-weight: 600;
+        font-style: italic;
+        text-align: justify;
+        line-height: 1.4em;;
+      }
+    }
+
+    &_footer {
+      background-color: v.$secondary;
+      width: 100%;
+      height: 9vh;
+      border-radius: 0 0 18px 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+
+      &_a {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        color: v.$primary;
+        font-weight: 800;
+      }
+    }
+  }
+}
+// Partie composant PROJECT -- Fin
+
+// Partie composant PORTFOLIO -- Début
+.portfolio-container {
+  margin: 10vh auto 0;
+  width: 95%;
+}
+
+@media (min-width: 1024px) {
+  .portfolio-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 95%;
+    margin: auto;
+
+    &_header {
+      width: 1100px;
+      margin: auto;
+    }
+
+    &_projects {
+      display: flex;
+    }
+  }
+}
+// Partie composant PORTFOLIO -- Fin

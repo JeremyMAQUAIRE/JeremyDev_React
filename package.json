@@ -11,8 +11,10 @@
 		"lint:fix": "eslint src/**/*.{js,jsx,ts,tsx} --fix"
 	},
 	"dependencies": {
+		"bootstrap": "^5.3.3",
 		"framer-motion": "^11.7.0",
 		"react": "^18.2.0",
+		"react-bootstrap": "^2.10.5",
 		"react-dom": "^18.2.0",
 		"react-feather": "^2.0.10",
 		"react-helmet": "^6.1.0",

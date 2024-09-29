@@ -54,7 +54,7 @@ const AboutPage = () => {
         </div>
         <div className="aboutPage_meta_description">
           <h3 className="aboutPage_meta_description_title">
-            Dévellopeur Full Stack
+            Développeur Full Stack
           </h3>
           <p className="aboutPage_meta_description_info">
             J&apos;ai créé mon entreprise de développement pour concrétiser ma
